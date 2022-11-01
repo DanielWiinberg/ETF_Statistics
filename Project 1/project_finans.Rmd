@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r}
-setwd("/Users/dwiinberg/Desktop/Project 1")
+setwd("/Users/dwiinberg/Documents/ETF_Project/ETF_Statistics/Project 1")
 ```
 
 

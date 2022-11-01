@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  11 OCT 2022 08:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.20)  1 NOV 2022 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -348,7 +348,8 @@ Package: xurl 2022/01/09 v 0.10 modify URL breaks
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box54
-) (./project_finans.aux)
+)
+No file project_finans.aux.
 \openout1 = `project_finans.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
@@ -507,173 +508,27 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<project_finans_files/figure-latex/unnamed-chunk-4-1.pdf, id=4, 427.5975pt x 28
-6.06876pt>
-File: project_finans_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-4-1.pd
-f  used on input line 181.
-(pdftex.def)             Requested size: 427.59645pt x 286.06805pt.
-[1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<project_finans_files/figure-latex/unnamed-chunk-6-1.pdf, id=17, 436.63126pt x 
-248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-6-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-6-1.pd
-f  used on input line 206.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-[2 <./project_finans_files/figure-latex/unnamed-chunk-4-1.pdf>]
-<project_finans_files/figure-latex/unnamed-chunk-6-2.pdf, id=32, 436.63126pt x 
-248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-6-2.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-6-2.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-6-2.pd
-f  used on input line 214.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-<project_finans_files/figure-latex/unnamed-chunk-6-3.pdf, id=33, 436.63126pt x 
-248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-6-3.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-6-3.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-6-3.pd
-f  used on input line 222.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-[3 <./project_finans_files/figure-latex/unnamed-chunk-6-1.pdf> <./project_finan
-s_files/figure-latex/unnamed-chunk-6-2.pdf>]
-<project_finans_files/figure-latex/unnamed-chunk-6-4.pdf, id=52, 436.63126pt x 
-248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-6-4.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-6-4.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-6-4.pd
-f  used on input line 230.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-[4 <./project_finans_files/figure-latex/unnamed-chunk-6-3.pdf> <./project_finan
-s_files/figure-latex/unnamed-chunk-6-4.pdf>]
-<project_finans_files/figure-latex/unnamed-chunk-7-1.pdf, id=72, 436.63126pt x 
-248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-7-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-7-1.pd
-f  used on input line 252.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-263.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
+LaTeX Warning: File `project_finans_files/figure-latex/unnamed-chunk-4-1.pdf' n
+ot found on input line 181.
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 290.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 292.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 292.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 292.
+! Package pdftex.def Error: File `project_finans_files/figure-latex/unnamed-chu
+nk-4-1.pdf' not found: using draft setting.
 
-Overfull \hbox (59.04971pt too wide) in paragraph at lines 292--301
- [] 
- []
-
-[5 <./project_finans_files/figure-latex/unnamed-chunk-7-1.pdf>]
-<project_finans_files/figure-latex/unnamed-chunk-9-1.pdf, id=85, 436.63126pt x 
-283.0575pt>
-File: project_finans_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-9-1.pd
-f  used on input line 319.
-(pdftex.def)             Requested size: 436.63019pt x 283.0568pt.
-<project_finans_files/figure-latex/unnamed-chunk-9-2.pdf, id=86, 436.63126pt x 
-283.0575pt>
-File: project_finans_files/figure-latex/unnamed-chunk-9-2.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-9-2.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-9-2.pd
-f  used on input line 328.
-(pdftex.def)             Requested size: 436.63019pt x 283.0568pt.
-[6 <./project_finans_files/figure-latex/unnamed-chunk-9-1.pdf>]
-<project_finans_files/figure-latex/unnamed-chunk-9-3.pdf, id=104, 436.63126pt x
- 283.0575pt>
-File: project_finans_files/figure-latex/unnamed-chunk-9-3.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-9-3.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-9-3.pd
-f  used on input line 337.
-(pdftex.def)             Requested size: 436.63019pt x 283.0568pt.
-<project_finans_files/figure-latex/unnamed-chunk-9-4.pdf, id=105, 436.63126pt x
- 283.0575pt>
-File: project_finans_files/figure-latex/unnamed-chunk-9-4.pdf Graphic file (typ
-e pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-9-4.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-9-4.pd
-f  used on input line 346.
-(pdftex.def)             Requested size: 436.63019pt x 283.0568pt.
-[7 <./project_finans_files/figure-latex/unnamed-chunk-9-2.pdf> <./project_finan
-s_files/figure-latex/unnamed-chunk-9-3.pdf>]
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 371.
-<project_finans_files/figure-latex/unnamed-chunk-10-1.pdf, id=127, 437.635pt x 
-286.06876pt>
-File: project_finans_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (ty
-pe pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-10-1.p
-df  used on input line 377.
-(pdftex.def)             Requested size: 437.6406pt x 286.07242pt.
-[8 <./project_finans_files/figure-latex/unnamed-chunk-9-4.pdf>] [9 <./project_f
-inans_files/figure-latex/unnamed-chunk-10-1.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 481.
-
-[10] [11]
-<project_finans_files/figure-latex/unnamed-chunk-17-1.pdf, id=170, 436.63126pt 
-x 248.93pt>
-File: project_finans_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (ty
-pe pdf)
-<use project_finans_files/figure-latex/unnamed-chunk-17-1.pdf>
-Package pdftex.def Info: project_finans_files/figure-latex/unnamed-chunk-17-1.p
-df  used on input line 666.
-(pdftex.def)             Requested size: 436.63019pt x 248.92938pt.
-[12 <./project_finans_files/figure-latex/unnamed-chunk-17-1.pdf>] [13] (./proje
-ct_finans.aux) ) 
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.181 ...files/figure-latex/unnamed-chunk-4-1.pdf}
+                                                   
 Here is how much of TeX's memory you used:
- 13863 strings out of 478268
- 223258 string characters out of 5846347
- 554843 words of memory out of 5000000
- 31729 multiletter control sequences out of 15000+600000
- 516695 words of font info for 112 fonts, out of 8000000 for 9000
+ 13650 strings out of 478268
+ 218360 string characters out of 5846347
+ 544688 words of memory out of 5000000
+ 31598 multiletter control sequences out of 15000+600000
+ 502108 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,9n,77p,1011b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathe
-x.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
-r/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/te
-xlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/tex
-mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/
-enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/
-lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.
-pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texli
-ve/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2022/texmf-dist/fon
-ts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pub
-lic/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lms
-y7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></u
-sr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/t
-exlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on project_finans.pdf (13 pages, 457437 bytes).
-PDF statistics:
- 287 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 25 named destinations out of 1000 (max. 500000)
- 26757 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 74i,4n,77p,1011b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

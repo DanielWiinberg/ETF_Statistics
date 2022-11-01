@@ -1,0 +1,89 @@
+---
+title: "Trading ETF's - The sequel, Daniel Emil Wiinberg S133232"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document:
+    latex_engine: lualatex
+---
+
+
+```{r}
+D <- read.table("finans2_data.csv", header = TRUE, sep = ";")
+```
+# Introduction to the data
+
+```{r}
+head(D); tail(D)
+```
+
+The data contain 95 rows of data (excluding header), one for each ETF. Each row contain 3 columns for the 3 variables: Geo.mean, Volatility and maxTuw. These variables are calculated from the data used in the first project, representing the 454 weeks returns of each ETF.
+
+* **Geo.mean** contains observations of the geometric average rate of return for the ETFs in the dataset.
+* **Volatility** represents the weekly volatility which is the standard deviation of the ratio between the price of an ETF at the beginning of a week and the end. 
+* **maxTuW** is Maximum Time under Water, and indicates the maximum number of weeks between two peak prices.
+
+## Scatterplots
+
+```{r}
+# Scatterplot
+plot(c(D$Geo.mean), c(D$Volatility), type="p", xlab="Geo.mean", 
+     ylab="Volatility", col=c("green"), cex=1)
+
+plot(c(D$Geo.mean), c(D$maxTuW), type="p", xlab="Geo.mean", 
+     ylab="maxTuW", col=c("blue"), cex=1)
+```
+
+## Histograms
+
+```{r}
+# Histograms
+hist(D$Geo.mean, xlab="Geo.mean", prob=TRUE, breaks = 30, col="red")
+hist(D$Volatility, xlab="Volatility", prob=TRUE, breaks = 30, col="green")
+hist(D$maxTuW, xlab="maxTuW", prob=TRUE, breaks = 30, col="blue")
+```
+
+## Summary table
+
+```{r}
+# summary(D)
+# sd(D$Geo.mean)
+# sd(D$Volatility
+# sd(D$maxTuW)
+```
+
+|            |  n |   mean  |    sd   |  median |    q1   |   q3   |
+|:----------:|:--:|:-------:|:-------:|:-------:|:-------:|:------:|
+|  Geo.mean  | 95 | 0.07690 | 0.08087 | 0.08274 | 0.02871 | 0.1344 |
+| Volatility | 95 |  3.060  |  0.8790 |  3.026  |  2.588  |  3.675 |
+|   maxTuW   | 95 |  307.3  |  42.77  |  324.0  |  309.0  |  327.0 |
+
+
+# Multiple linear regression
+
+$$Y_i = \beta_0+\beta_1x_{1,i} + \beta_2 x_{2,i} + \epsilon_i$$
+Where $Y_i$ is the geometric mean, $x_1$ is Volatility and $x_2$ is maxTuW. 
+
+```{r}
+# Subset containing only AGG, VAW, IWN and SPY (for validation)
+D_test = subset(D, ETF %in% c("AGG","VAW","IWN","SPY"))
+# Subset containing only the 91 remaining ETFs (for model estimation)
+D_model = subset(D, !(ETF %in% c("AGG","VAW","IWN","SPY")))
+```
+
+```{r}
+# Estimate multiple linear regression model
+fit = lm(Geo.mean ~ Volatility + maxTuW, data = D_model)
+
+# Show parameter estimates etc.
+summary(fit)
+```
+
+
+
+
+
+
+
+
