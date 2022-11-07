@@ -1,11 +1,11 @@
 ---
 title: "Trading ETF's - The sequel, Daniel Emil Wiinberg S133232"
 output:
-  html_document:
-    df_print: paged
-  html_notebook: default
   pdf_document:
     latex_engine: lualatex
+  html_notebook: default
+  html_document:
+    df_print: paged
 ---
 
 
@@ -26,6 +26,8 @@ The data contain 95 rows of data (excluding header), one for each ETF. Each row 
 
 ## Scatterplots
 
+First we plot the volatility and maxTuW variables against the geometric mean in a scatterplot.
+
 ```{r}
 # Scatterplot
 plot(c(D$Geo.mean), c(D$Volatility), type="p", xlab="Geo.mean", 
@@ -37,6 +39,8 @@ plot(c(D$Geo.mean), c(D$maxTuW), type="p", xlab="Geo.mean",
 
 ## Histograms
 
+Next we plot the three variables in a histogram plot to easily the distribution of values. 
+
 ```{r}
 # Histograms
 hist(D$Geo.mean, xlab="Geo.mean", prob=TRUE, breaks = 30, col="red")
@@ -45,6 +49,8 @@ hist(D$maxTuW, xlab="maxTuW", prob=TRUE, breaks = 30, col="blue")
 ```
 
 ## Summary table
+
+We extract some general information about the variables using the summary R function and display it in a table as shown below. 
 
 ```{r}
 # summary(D)
@@ -59,11 +65,17 @@ hist(D$maxTuW, xlab="maxTuW", prob=TRUE, breaks = 30, col="blue")
 | Volatility | 95 |  3.060  |  0.8790 |  3.026  |  2.588  |  3.675 |
 |   maxTuW   | 95 |  307.3  |  42.77  |  324.0  |  309.0  |  327.0 |
 
+############################################################################
 
+\newpage
 # Multiple linear regression
 
+Our linear regression model with for the geometric mean with our two variables for volatility and maxTuW is:
 $$Y_i = \beta_0+\beta_1x_{1,i} + \beta_2 x_{2,i} + \epsilon_i$$
 Where $Y_i$ is the geometric mean, $x_1$ is Volatility and $x_2$ is maxTuW. 
+
+
+Next we divide out data set into two pools, where we will use the bigger pool to create a prediction model, and then use the smaller test set to see how well our prediction model behaves. 
 
 ```{r}
 # Subset containing only AGG, VAW, IWN and SPY (for validation)
@@ -71,6 +83,9 @@ D_test = subset(D, ETF %in% c("AGG","VAW","IWN","SPY"))
 # Subset containing only the 91 remaining ETFs (for model estimation)
 D_model = subset(D, !(ETF %in% c("AGG","VAW","IWN","SPY")))
 ```
+
+
+Here we create our linear regression for the geometric mean with our two variables.
 
 ```{r}
 # Estimate multiple linear regression model
@@ -80,10 +95,135 @@ fit = lm(Geo.mean ~ Volatility + maxTuW, data = D_model)
 summary(fit)
 ```
 
+From the summary is can be seen that:
+
+| Name              | Value      |
+|-------------------|------------|
+|     $\beta_0$     |  0.2528394 |
+|     $\beta_1$     | -0.0351310 |
+|     $\beta_2$     | -0.0002203 |
+|  $\hat{\sigma}^2$ |   0.07582  |
+| Degree of freedom |     88     |
+|       $R^2$       |   0.1516   |
+
+$\beta_0$ is the interception with $x = 0$ and $\beta_1$ and $\beta_2$ are the slopes of the regression line. Meaning the effect that $\beta_i$ has on $x_i$. 
+
+Since $\beta_1$ and $\beta_2$ are both slightly negative it means that volatility and Maximum Time under Water has a negative influence on the average return. 
+
+## Model validation
+
+We start by plotting the observed geometric mean values against our fitted values. 
+
+```{r}
+# Plots for model validation
+# Observations against fitted values
+plot(fit$fitted.values, D_model$Geo.mean, xlab = "Fitted values",     
+       ylab = "Geom. average rate of return")
+```
+
+Next we plot the fitted values and each of our explanatory variables against the residuals. We are looking systematic dependences between the values and the residuals. 
+
+```{r}
+# Residuals against each of the explanatory variables
+plot(D_model$Volatility, fit$residuals,
+     xlab = "Volatility", ylab = "Residuals")
+plot(D_model$maxTuW, fit$residuals,
+     xlab = "maxTuW", ylab = "Residuals")
+
+# Residuals against fitted values
+plot(fit$fitted.values, fit$residuals, xlab = "Fitted values", 
+     ylab = "Residuals")
+```
+
+From the plots of the residuals against the explanatory variables we do not see a systematic dependence, which means that our model is sound. 
+
+Next we check if the residuals are normal distributed by doing a qq-plot.
+
+```{r}
+# Normal QQ-plot of the residuals
+qqnorm(fit$residuals, ylab = "Residuals", xlab = "Z-scores", 
+       main = "")
+qqline(fit$residuals)
+```
+
+From the qq-plot and qq-line we can see that the residuals are normal distributed, which means that the normality assumption holds. 
 
 
+#####################################################
 
+\newpage
+# Confidence interval for $\beta_1$
 
+The confidence interval for parameter $\beta_1$ is given by:
+$$\hat \beta_1 \pm t_{1-\alpha/2}\hat \sigma_{\beta_1}$$
 
+```{r}
+#Confidence interval for beta_1
+-0.0351310 + c(1,-1)*qt(0.975, df=88)*0.0097229
 
+# Confidence intervals for the model coefficients
+confint(fit, level = 0.95)
+```
+
+We can see that the values calculated for $\beta_1$ using the formula are the same as when using the R-function. The confidence intervals for $\beta_0$ and $\beta_2$ are also given from the R-function above. 
+
+## Hypothesis testing
+
+We are testing whether $\beta_1$ might be -0.06, meaning we are testing: 
+$$H_{0,1}: \beta_1 = \beta_{0,1} \Rightarrow \beta_1 = -0.06$$
+Against the other hypothesis:
+$$H_{1,1}: \beta_1 \neq \beta_{0,1} \Rightarrow \beta_1 \neq -0.06$$ 
+We are testing with a significance level of $\alpha = 0.05$.
+```{r}
+tobs = (-0.0351310 - (-0.06)) / 0.0097229
+tobs
+
+# The p value becomes
+2*(1-pt(tobs,df=88))
+```
+
+We can see that with a $p-value = 0.0122$ we have some evidence against the hypothesis. This could also be seen from the confidence interval for $\beta_1$ being $\{-0.0545; -0.0158\}$, since $-0.06$ is outside the interval.
+
+#####################################################
+
+\newpage
+# Backward selection
+
+If we go back to inspect our model, we can see that that maxTuW is not a significant parameter in our model, since its p-value is 0.252. Using backwards selection we remove this parameter from our model, and fit the data again.
+
+```{r}
+# Estimate multiple linear regression model
+final_model = lm(Geo.mean ~ Volatility, data = D_model)
+
+# Show parameter estimates etc.
+summary(final_model)
+```
+
+We can now see that the slope is highly significant with a p-value of $9.62*10^{-5}$, meaning we cannot reduce our model further. 
+
+Therefore our final model with estimations of our parameters is:
+$$Y_i = \beta_0+\beta_1x_{1,i} = 0.19486 - 0.03824x_{1}$$
+
+############################################################################
+
+\newpage
+# Comparing $D_{model}$ and $D_{test}$
+
+First we predict the data for the geometric mean using our final. 
+
+```{r}
+# Predictions and 95% prediction intervals
+pred = predict(final_model, newdata = D_test, 
+               interval = "prediction", level = 0.95)
+```
+
+Next we use the cbind function to easily compare the actual geometric mean from our 4 test models to the values that we just got from our prediction. 
+
+```{r}
+# Observed values and predictions
+compare = cbind(id = D_test$ETF, Geo.mean = D_test$Geo.mean, pred)
+compare
+```
+
+We can see that the predictions are all fairly close, even though some of the predictions are better than others. However they are all within the 95% confidence interval. 
 
